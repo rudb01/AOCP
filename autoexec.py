@@ -55,7 +55,14 @@ for row in ws_data.iter_rows(min_row=3, values_only=True):
 
     for cell in ws_new:
         for c in cell:
-            if c.value in replacements:
-                c.value = replacements[c.value]
+            if c.value is not None:
+                for placeholder, value in replacements.items():
+                    if placeholder in str(c.value):
+                        c.value = c.value.replace(placeholder, value)
+
+    # for cell in ws_new:
+    #     for c in cell:
+    #         if c.value in replacements:
+    #             c.value = replacements[c.value]
 
     wb_new.save(new_file)
