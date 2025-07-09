@@ -13,7 +13,7 @@ wb_data = load_workbook(data_file)
 ws_data = wb_data['Бетон для АОСР']
 
 wb_template = load_workbook(template_file)
-ws_template = wb_template['Лист1']
+ws_template = wb_template['АОСР бетон']
 
 for row in ws_data.iter_rows(min_row=3, values_only=True):
     '''Сохраняем данные из файла в exel в переменные. '''
@@ -36,7 +36,7 @@ for row in ws_data.iter_rows(min_row=3, values_only=True):
     shutil.copy(template_file, new_file)
 
     wb_new = load_workbook(new_file)
-    ws_new = wb_new['Лист1']
+    ws_new = wb_new['АОСР бетон']
 
     replacements = {
         '[№ акта]': act_number,
