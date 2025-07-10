@@ -12,7 +12,7 @@ def format_date(val):
 
 data_file = 'я. Бетон (Июнь).xlsx'  # Путь к файлу с данными
 template_file = 'Шаблон.xlsx'  # Путь к шаблону для актов
-output_folder = 'Акты_скрытых_работ'  # Название для папки под акты
+output_folder = 'Акты_бетон'  # Название для папки под акты
 
 os.makedirs(output_folder, exist_ok=True)  # Создаем папку для выходных файлов
 
