@@ -10,7 +10,7 @@ def format_date(val):
     return val.strftime('%d.%m.%Y') if isinstance(val, date) else str(val or '')
 
 
-data_file = 'я. Бетон (Июнь).xlsx'  # Путь к файлу с данными
+data_file = 'я. Бетон (Июль).xlsx'  # Путь к файлу с данными
 template_file = 'Шаблон.xlsx'  # Путь к шаблону для актов
 output_folder = 'Акты_бетон'  # Название для папки под акты
 
@@ -62,8 +62,8 @@ for row in ws_data.iter_rows(min_row=3, values_only=True):
 
     # Проверка материалов, реестр или нет
     if mixture_number == 'Реестр':
-        material1 = f'Материалы согласно реестру №{act_number} от {end_date}'
-        material2 = f'Реестр №{act_number} от {end_date}'
+        material1 = f'Материалы согласно реестру №{act_number} от {act_date}'
+        material2 = f'Реестр №{act_number} от {act_date}'
         material1_1, material2_1 = '', ''
     elif '\n' in mixture_number:
         mixture_number_parts = mixture_number.split('\n')

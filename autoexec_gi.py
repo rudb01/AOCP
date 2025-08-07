@@ -10,7 +10,7 @@ def format_date(val):
     return val.strftime('%d.%m.%Y') if isinstance(val, date) else str(val or '')
 
 
-data_file = 'я. Бетон (Июнь).xlsx'  # Путь к файлу с данными
+data_file = 'я. Бетон (Июль).xlsx'  # Путь к файлу с данными
 template_file = 'Шаблон ГИ.xlsx'  # Путь к шаблону для актов
 output_folder = 'Акты_ги'  # Название для папки под акты
 
@@ -40,7 +40,7 @@ for row in ws_data.iter_rows(min_row=3, values_only=True):
     material_data = str(row[8]) if row[8] else ''
     # lab_uzk = str(row[10]) if row[10] else ''
     lab_k = str(row[11]) if row[11] else ''
-    # lab_date = format_date(row[12])
+    lab_date = format_date(row[12])
     code = str(row[13])
     agreement_date = format_date(row[14])
 
@@ -83,7 +83,7 @@ for row in ws_data.iter_rows(min_row=3, values_only=True):
         lab2 = ''
     else:
         lab1 = f'{name_k1} №{lab_k}-ВЛ/2/1.3В-2025 от {start_date}'
-        lab2 = f'{name_k2} №{lab_k}-А/2/1.3В-2025 от {end_date}'
+        lab2 = f'{name_k2} №{lab_k}-А/2/1.3В-2025 от {lab_date}'
 
     if not next_work:
         next_work = 'Согласно проекта'
